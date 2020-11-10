@@ -1,4 +1,4 @@
-const URL = "http://localhost:8080/jpareststarter";
+import URL from "./settings";
 
 function handleHttpErrors(res) {
   if (!res.ok) {
