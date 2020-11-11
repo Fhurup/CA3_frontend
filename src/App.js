@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import facade from "./apiFacade";
+import Menu from "./Menu";
+import { Link, Route, Switch } from "react-router-dom";
 
 function LogIn({ login }) {
   const init = { username: "", password: "" };
@@ -28,16 +30,9 @@ function LogIn({ login }) {
   );
 }
 function LoggedIn() {
-  const [dataFromServer, setDataFromServer] = useState("Loading...");
-
-  useEffect(() => {
-    facade.fetchData().then((data) => setDataFromServer(data.msg));
-  }, []);
-
   return (
     <div>
-      <h2>Data Received from server</h2>
-      <h3>{dataFromServer}</h3>
+      <Menu />
     </div>
   );
 }
