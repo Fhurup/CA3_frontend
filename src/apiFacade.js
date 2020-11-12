@@ -1,4 +1,5 @@
 import URL from "./settings";
+import React, { useState, useEffect } from "react";
 
 function handleHttpErrors(res) {
   if (!res.ok) {
@@ -20,6 +21,22 @@ const logout = () => {
   localStorage.removeItem("jwtToken");
 };
 
+const parseRole = (token) => {
+  try {
+    return JSON.parse(atob(token.split(".")[1]));
+  } catch (e) {
+    return null;
+  }
+};
+
+const setRole = (role) => {
+  localStorage.setItem("role", role.roles);
+};
+
+const getRole = () => {
+  return localStorage.getItem("role");
+};
+
 function apiFacade() {
   /* Insert utility-methods from a latter step (d) here (REMEMBER to uncomment in the returned object when you do)*/
 
@@ -32,6 +49,7 @@ function apiFacade() {
       .then(handleHttpErrors)
       .then((res) => {
         setToken(res.token);
+        setRole(parseRole(res.token));
       });
   };
   const fetchSwabiData = () => {
@@ -46,7 +64,9 @@ function apiFacade() {
 
   const fetchUserData = () => {
     const options = makeOptions("GET", true); //True add's the token
-    return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
+    return fetch(URL + "/api/info/" + getRole(), options).then(
+      handleHttpErrors
+    );
   };
 
   const makeOptions = (method, addToken, body) => {
