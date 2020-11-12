@@ -24,7 +24,7 @@ function LogIn({ login }) {
       <form onChange={onChange}>
         <input placeholder="User Name" id="username" />
         <input placeholder="Password" id="password" />
-        <button onClick={performLogin}>Login</button>
+        <button className="button buttonIn" onClick={performLogin}>Login</button>
       </form>
     </div>
   );
@@ -55,7 +55,7 @@ function App() {
       ) : (
         <div>
           <LoggedIn />
-          <button onClick={logout}>Logout</button>
+          <button className="button" onClick={logout}>Logout</button>
         </div>
       )}
     </div>

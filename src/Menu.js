@@ -1,27 +1,33 @@
 import Swabi from "./swabi";
 import Jokes from "./Jokes";
 import User from "./user";
-import { Link, Route, Switch } from "react-router-dom";
+import Home from "./home";
+import { Link, NavLink, Route, Switch } from "react-router-dom";
 
 export default function Menu() {
   return (
     <div>
       <nav className="navbar navbar-light">
-        <ul className="nav navbar-nav">
+        <ul className="header">
           <li>
-            <Link to="/user">User</Link>
+            <NavLink exact activeClassName="active" to="/">Welcome</NavLink>
           </li>
           <li>
-            <Link to="/jokes">Jokes</Link>
+            <NavLink activeClassName="active" to="/user">User</NavLink>
           </li>
           <li>
-            <Link to="/swabi">Swabi</Link>
+            <NavLink activeClassName="active" to="/jokes">Jokes</NavLink>
+          </li>
+          <li>
+            <NavLink activeClassName="active" to="/swabi">Swabi</NavLink>
           </li>
         </ul>
       </nav>
 
       <Switch>
-        <Route exact path="/"></Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
         <Route path="/user">
           <User />
         </Route>

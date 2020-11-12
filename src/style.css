@@ -25,9 +25,9 @@ ul.header {
   ul.header li a:hover:not(.active) {
     background-color: #111;
   }
-  
-  .selected {
-    background-color: #4caf50;
+    
+  .active {
+    background-color: #0c5c10;
   }
   
   .content {
@@ -36,4 +36,33 @@ ul.header {
     padding: 18px 16px;
     height: 1000px;
     font-size: small;
+  }
+
+  .button {
+    background-color: #aa1b11;
+    border: none;
+    color: white;
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  .buttonIn {
+    background-color: #0c7411;
+    padding: 2px 16px;
+    font-size: 15px;
+  }
+
+  .lineHorizontal__container {
+    align-items: center;
+    display: flex;
+    height: 80px;
+  }
+  .lineHorizontal {
+    border-top: 1px solid rgb(30, 30, 30);
+    width: 100%;
   }
